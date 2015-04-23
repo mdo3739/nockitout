@@ -1,5 +1,11 @@
 source 'https://rubygems.org'
 
+gem 'bootstrap-sass'  # handles css
+gem 'quiet_assets'    # hides asset pipeline logs
+gem 'devise'          # user authentication
+gem 'figaro', '1.0'   # handles sensitive data
+gem 'pundit'          # authorization
+gem 'puma'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
@@ -41,5 +47,14 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'spring-commands-rspec'
+  gem 'faker'        # creates fake data for seeds
+
+  #gem 'rspec-rails', '~> 3.0'
+  #gem 'capybara'
+  #gem 'factory_girl_rails', '~> 4.0'
 end
 
+group :production do
+	gem 'rails_12factor'
+end
