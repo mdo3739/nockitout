@@ -2,13 +2,9 @@ Total open tasks </br>
 Tasks completed last month <br/>
 Tasks completed total </br>
 Tasks self-destructed
-
-<%= render partial: 'items/form', locals: {new_item: @new_item} %>
-
-<ul>
-	<% @items.each do |item| %>
-		<li>
-			<%= render partial: 'items/item', locals: {item: item} %>
-		</li>
-	<% end %>
+<div id='new_item'>
+	<%= render partial: 'items/form', locals: {new_item: @new_item} %>
+</div>
+<ul id='todo_list'>
+		<%= render @items %>
 </ul>

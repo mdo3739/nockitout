@@ -1,2 +1,4 @@
-<%= item.name %>
-<%= link_to "Delete", [item.user, item], method: :delete %> <br/>
+<li id="<%= item.id %>">
+	<%= item.name %>
+	<%= link_to "", [item.user, item], method: :delete, remote: true, class: 'glyphicon glyphicon-ok' %> <br/>
+</li>

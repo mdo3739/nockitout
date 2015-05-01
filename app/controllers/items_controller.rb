@@ -1,12 +1,17 @@
 class ItemsController < ApplicationController
 	def create
-		@new_item = current_user.items.build(item_params)
-		if @new_item.save
+		@item = current_user.items.build(item_params)
+		@new_item = Item.new
+		@new_item.user = current_user
+		if @item.save
 			flash[:notice] = "Item saved"
-			redirect_to user_path(current_user)
 		else
 			flash[:error] = "Item not saved, please try again"
-			redirect_to user_path(current_user)
+		end
+
+		respond_to do |format|
+			format.html
+			format.js
 		end
 	end
 
@@ -14,10 +19,13 @@ class ItemsController < ApplicationController
 		@item = Item.find(params[:id])
 		if @item.destroy
 			flash[:notice] = "check!"
-			redirect_to user_path(current_user)
 		else
 			flash[:error] = "didnt work :("
-			redirect_to user_path(current_user)
+		end
+
+		respond_to do |format|
+			format.html
+			format.js { render "destroy.js.erb"}
 		end
 	end
 

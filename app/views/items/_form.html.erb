@@ -1,4 +1,4 @@
-<%= form_for [new_item.user, new_item] do |f| %>
+<%= form_for [new_item.user, new_item], remote: true do |f| %>
 	<div class='form-group'>
 		<%= f.label :task %>
 		<%= f.text_field :name, placeholder: 'More things to do?' %>
