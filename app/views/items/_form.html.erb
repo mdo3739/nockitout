@@ -1,0 +1,9 @@
+<%= form_for [new_item.user, new_item] do |f| %>
+	<div class='form-group'>
+		<%= f.label :task %>
+		<%= f.text_field :name, placeholder: 'More things to do?' %>
+	</div>
+	<div class='form-group'>
+		<%= f.submit "Create Mission", class: 'btn btn-success' %>
+	</div>
+<% end %>
