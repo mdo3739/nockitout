@@ -1,6 +1,2 @@
-<% if @item.valid? %>
-	$("#todo_list").append("<%= escape_javascript(render(@item)) %>");
-	$('#new_item').html("<%= escape_javascript(render partial: 'items/form', locals: {new_item: @new_item}) %>");
-<% else %>
-	
-<% end %>
+$("#todo_list").append("<%= escape_javascript(render(@item)) %>");
+$('#new_item').html("<%= escape_javascript(render partial: 'items/form', locals: {new_item: @new_item}) %>");

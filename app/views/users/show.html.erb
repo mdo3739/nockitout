@@ -1,10 +1,21 @@
+<div id='new_item'>
+	<%= render partial: 'items/form', locals: {new_item: @new_item} %>
+</div>
+<table>
+	<theader>
+		<th>Days Left</th>
+		<th>Task</th>
+		<th>Finished?</th>
+	</theader>
+	<tbody id='todo_list'>
+		<%= render @items %>
+	</tbody>
+</table id='finished_tasks'>
+<table>
+	<th>Finished Tasks</th>
+	<tr></tr>
+</table>
 Total open tasks </br>
 Tasks completed last month <br/>
 Tasks completed total </br>
 Tasks self-destructed
-<div id='new_item'>
-	<%= render partial: 'items/form', locals: {new_item: @new_item} %>
-</div>
-<ul id='todo_list'>
-		<%= render @items %>
-</ul>

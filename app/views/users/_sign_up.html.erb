@@ -25,4 +25,4 @@
   </div>
 <% end %>
 
-<%= render "devise/shared/links", locals: {resource: resource} %>
+<%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %>

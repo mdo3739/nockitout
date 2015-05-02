@@ -17,12 +17,13 @@ class ItemsController < ApplicationController
 
 	def destroy
 		@item = Item.find(params[:id])
+		@item.update_attributes(completed: true)
 		if @item.destroy
 			flash[:notice] = "check!"
 		else
 			flash[:error] = "didnt work :("
 		end
-
+		
 		respond_to do |format|
 			format.html
 			format.js { render "destroy.js.erb"}

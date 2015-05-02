@@ -1,5 +1,5 @@
-<li id="<%= item.id %>">
-	<%= item.name %>
-	<%= item.days_left.to_s + "days left..." %>
-	<%= link_to "", [item.user, item], method: :delete, remote: true, class: 'glyphicon glyphicon-ok' %> <br/>
-</li>
+<tr id="<%= item.id %>">
+	<td><%= item.days_left %></td>
+	<td><%= item.name %></td>
+	<td><%= link_to "", [item.user, item], method: :delete, remote: true, class: 'glyphicon glyphicon-ok' %> </td>
+</tr>

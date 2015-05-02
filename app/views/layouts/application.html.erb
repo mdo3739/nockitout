@@ -12,9 +12,6 @@
 	<div class='container'>
 
 	<nav class='navbar navbar-default'>
-		<ul>
-			<li><%= link_to 'Home', root_path %></li>
-		</ul>
 		<div class="user-info pull-right">
 			<% if current_user %>
 				Hello <%= link_to current_user.name, user_path(current_user) %>
