@@ -5,7 +5,8 @@ gem 'quiet_assets'    # hides asset pipeline logs
 gem 'devise'          # user authentication
 gem 'figaro', '1.0'   # handles sensitive data
 gem 'pundit'          # authorization
-gem 'puma'
+gem 'puma'            # web server that allows multiple threads
+gem 'whenever', :require => false
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
