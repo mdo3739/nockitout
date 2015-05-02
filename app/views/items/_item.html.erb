@@ -1,4 +1,5 @@
 <li id="<%= item.id %>">
 	<%= item.name %>
+	<%= item.days_left.to_s + "days left..." %>
 	<%= link_to "", [item.user, item], method: :delete, remote: true, class: 'glyphicon glyphicon-ok' %> <br/>
 </li>
