@@ -1,21 +1,32 @@
-<div id='new_item'>
-	<%= render partial: 'items/form', locals: {new_item: @new_item} %>
+<div class="row">
+	<div class="col-md-4 col-md-offset-4">
+
+		<div id='new_item'>
+			<%= render partial: 'items/form', locals: {new_item: @new_item} %>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+		<table class="table table-striped-custom">
+			<theader>
+				<th>Days Left</th>
+				<th>Task</th>
+				<th>Finished?</th>
+			</theader>
+			<tbody id='todo_list'>
+				<%= render @items %>
+			</tbody>
+		</table>
+	</div>
 </div>
 <table>
-	<theader>
-		<th>Days Left</th>
-		<th>Task</th>
-		<th>Finished?</th>
-	</theader>
-	<tbody id='todo_list'>
-		<%= render @items %>
-	</tbody>
-</table id='finished_tasks'>
-<table>
 	<th>Finished Tasks</th>
-	<tr></tr>
+	<tbody class='completed' id='finished_tasks'>
+		<%= render @completed_items %>
+	</tbody>
 </table>
-Total open tasks </br>
-Tasks completed last month <br/>
+Total open tasks <%= @items.count %> </br>
+Tasks completed last month  <br/>
 Tasks completed total </br>
 Tasks self-destructed

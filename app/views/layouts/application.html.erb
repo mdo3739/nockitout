@@ -11,14 +11,14 @@
 <body>
 	<div class='container'>
 
-	<nav class='navbar navbar-default'>
-		<div class="user-info pull-right">
-			<% if current_user %>
-				Hello <%= link_to current_user.name, user_path(current_user) %>
-				<%= (link_to 'Sign Out?', destroy_user_session_path, method: :delete) if current_user %>
-			<% end %>
-		</div>
-	</nav>
+		<nav class='navbar navbar-default'>
+			<div class="user-info pull-right">
+				<% if current_user %>
+					Hello <%= link_to current_user.name, user_path(current_user) %>
+					<%= (link_to 'Sign Out?', destroy_user_session_path, method: :delete) if current_user %>
+				<% end %>
+			</div>
+		</nav>
 
 		<% if flash[:notice] %>
 			<div class='alert alert-success'>

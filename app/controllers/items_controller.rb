@@ -17,8 +17,8 @@ class ItemsController < ApplicationController
 
 	def destroy
 		@item = Item.find(params[:id])
-		@item.update_attributes(completed: true)
-		if @item.destroy
+		@item.completed =  true
+		if @item.save
 			flash[:notice] = "check!"
 		else
 			flash[:error] = "didnt work :("
