@@ -1,0 +1,7 @@
+<% if @item.completed == false %>
+	$("#<%=@item.id%>").fadeOut();
+	$("#open-tasks").append("<%= escape_javascript(render(@item)) %>");
+	$("#flash-container").html("<div id='flash-notice'class='alert alert-success'><button type='on' class='close' data-dismiss='alert'>&times;</button>It has been undone!</div>")
+<% else %>
+	$("#flash-container").html("<div class='alert alert-danger'><button type='button' class='close' data-dismiss='alert'>&times;</button>There was a problem undoing. Please try again.</div>")
+<% end %>

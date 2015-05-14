@@ -1,13 +1,8 @@
 class ItemsController < ApplicationController
 	def create
 		@item = current_user.items.build(item_params)
-		@new_item = Item.new
-		@new_item.user = current_user
-		if @item.save
-			flash[:notice] = "Item saved"
-		else
-			flash[:error] = "Item not saved, please try again"
-		end
+		@new_item = current_user.items.build(item_params)
+		@item.save
 
 		respond_to do |format|
 			format.html
@@ -18,11 +13,7 @@ class ItemsController < ApplicationController
 	def destroy
 		@item = Item.find(params[:id])
 		@item.completed =  true
-		if @item.save
-			flash[:notice] = "check!"
-		else
-			flash[:error] = "didnt work :("
-		end
+		@item.save
 		
 		respond_to do |format|
 			format.html
@@ -30,9 +21,20 @@ class ItemsController < ApplicationController
 		end
 	end
 
+	def update
+		@item = Item.find(params[:id])
+		@item.completed = false
+		@item.save
+
+		respond_to do |format|
+			format.html
+			format.js
+		end
+	end
+
 	private
 
 	def item_params
-		params.require(:item).permit(:name, :completed)
+		params.require(:item).permit(:name, :completed, :archive)
 	end
 end

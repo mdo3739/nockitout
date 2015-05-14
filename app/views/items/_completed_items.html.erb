@@ -1,0 +1,4 @@
+<tr id="<%= item.id %>">
+	<td col-span="2"><li><%= item.name %></li></td>
+	<td><%= link_to "Undo", [item.user, item], method: :put, remote: true, class: 'glyphicon glyphicon-ok' %> </td>
+</tr>

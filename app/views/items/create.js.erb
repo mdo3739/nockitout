@@ -1,2 +1,7 @@
-$("#todo_list").append("<%= escape_javascript(render(@item)) %>");
-$('#new_item').html("<%= escape_javascript(render partial: 'items/form', locals: {new_item: @new_item}) %>");
+<% if Item.all.include?(@item) %>
+	$("#open-tasks").append("<%= escape_javascript(render(@item)) %>");
+	$('#new_item').html("<%= escape_javascript(render partial: 'items/form', locals: {new_item: @new_item}) %>");
+	$("#flash-container").html("<div id='flash-notice'class='alert alert-success'><button type='button' class='close' data-dismiss='alert'>&times;</button>Item saved.</div>")
+<% else %>
+	$("#flash-container").html("<div class='alert alert-danger'><button type='button' class='close' data-dismiss='alert'>&times;</button>Item not saved. Please try again.</div>")
+<% end %>

@@ -7,8 +7,13 @@ class Item < ActiveRecord::Base
   default_scope{order('created_at ASC')}
   scope :order_by_priority, -> {reorder('created_at DESC')}
   scope :order_by_alphabet, -> {reorder(:name)}
+  scope :order_by_updated, -> {reorder('updated_at DESC')}
 
   def days_left
-  	7 - (DateTime.now.to_date - created_at.to_date).to_i
+  	(7 - (Time.now - created_at) / 86400).floor
+  end
+
+  def hours_left
+    ((7 - (Time.now - created_at) / 3600) - (7 - (Time.now - created_at)/3600)).floor
   end
 end

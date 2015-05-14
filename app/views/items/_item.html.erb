@@ -1,5 +1,5 @@
 <tr id="<%= item.id %>">
-	<td><%= item.days_left %></td>
+	<td><%= item.days_left.to_s + " days " + item.hours_left.to_s + " hours" %></td>
 	<td><%= item.name %></td>
 	<td><%= link_to "", [item.user, item], method: :delete, remote: true, class: 'glyphicon glyphicon-ok' %> </td>
 </tr>

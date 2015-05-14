@@ -30,7 +30,6 @@ table, th{
   border: 3px solid #FF6600;
   text-align: center;
   width: 700px;
-  margin-left: 200px;
 }
 
 th{
@@ -44,9 +43,19 @@ td{
 
 
 .table-striped-custom > tbody > tr:nth-of-type(even) {
-  background-color: #FFCC00;
+  background-color: #ffe4b2;
 }
 
-.completed{
+#finished-tasks{
   text-decoration: line-through;
+  text-align: left;
+}
+
+#new_item{
+  margin-bottom: 20px;
+}
+
+h5 {
+  color: #FFCC00;
+  text-align: center;
 }

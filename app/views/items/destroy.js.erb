@@ -1,2 +1,10 @@
-$("#<%=@item.id%>").fadeOut();
-$("#finished_tasks").append("<%= escape_javascript(render(@item)) %>");
+<% if @item.completed == true %>
+	$("#<%=@item.id%>").fadeOut();
+/*	<% if current_user.items.where(completed: true, archive: false).count == 1 %>
+		$("#finished-table").html("<table class='table'><th colspan='3'>Finished Tasks</th><tbody id='finished-tasks'><% @completed_items.each do |item| %><%= render partial: 'items/completed_items', locals: {item: item} %><% end %></tbody></table>")
+	<% end %>*/
+	$("#finished-tasks").prepend("<%= escape_javascript(render partial: 'items/completed_items', locals: {item: @item}) %>");
+	$("#flash-container").html("<div id='flash-notice'class='alert alert-success'><button type='button' class='close' data-dismiss='alert'>&times;</button>Check!</div>")
+<% else %>
+	$("#flash-container").html("<div class='alert alert-danger'><button type='button' class='close' data-dismiss='alert'>&times;</button>Didn't work. Please try again.</div>")
+<% end %>

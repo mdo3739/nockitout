@@ -7,26 +7,34 @@
 	</div>
 </div>
 <div class="row">
-	<div class="col-md-12">
+	<div class="col-md-10 col-md-offset-1">
 		<table class="table table-striped-custom">
 			<theader>
 				<th>Days Left</th>
 				<th>Task</th>
 				<th>Finished?</th>
 			</theader>
-			<tbody id='todo_list'>
-				<%= render @items %>
+			<tbody id='open-tasks'>
+				<%= render @open_items %>
 			</tbody>
 		</table>
 	</div>
 </div>
-<table>
-	<th>Finished Tasks</th>
-	<tbody class='completed' id='finished_tasks'>
-		<%= render @completed_items %>
-	</tbody>
-</table>
-Total open tasks <%= @items.count %> </br>
-Tasks completed last month  <br/>
-Tasks completed total </br>
-Tasks self-destructed
+<div class='row'>
+	<% if current_user.items.where(completed: true, archive: false).any? %>
+	<div class='col-md-10 col-md-offset-1' id='finished-table'>
+		<table class='table'>
+			<th colspan='3'>Finished Tasks</th>
+			<tbody id='finished-tasks'>
+				<% @completed_items.each do |item| %>
+					<%= render partial: 'items/completed_items', locals: {item: item} %>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+	<% end %>
+</div>
+Total open tasks:						 <%= @items.where(completed: false, archive: false).count %> </br>
+Tasks completed in past 7 days:	 <%= @items.where(completed: true).where("updated_at > ?", 7.days.ago).count %> <br/>
+Tasks completed total:			 <%= @items.where(completed: true).count %></br>
+Tasks self-destructed:			 <%= @items.where(completed: false, archive: true).count %>
