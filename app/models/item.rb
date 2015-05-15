@@ -14,6 +14,6 @@ class Item < ActiveRecord::Base
   end
 
   def hours_left
-    ((7 - (Time.now - created_at) / 3600) - (7 - (Time.now - created_at)/3600)).floor
+    ((168 - (Time.now - created_at) / 3600) - days_left * 24).floor
   end
 end
