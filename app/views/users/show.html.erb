@@ -21,7 +21,6 @@
 	</div>
 </div>
 <div class='row'>
-	<% if current_user.items.where(completed: true, archive: false).any? %>
 	<div class='col-md-10 col-md-offset-1' id='finished-table'>
 		<table class='table'>
 			<th colspan='3'>Finished Tasks</th>
@@ -32,7 +31,6 @@
 			</tbody>
 		</table>
 	</div>
-	<% end %>
 </div>
 <div class='row'>
 	<div class='footer'>

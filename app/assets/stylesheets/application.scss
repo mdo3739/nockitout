@@ -20,6 +20,7 @@
 #intro {
 	color:  #FF6600;
 	text-align: center;
+  padding-top: 60px;
 }
 
 .navbar{
@@ -65,4 +66,18 @@ h5 {
   font-family: Verdana;
   font-weight: bold;
   margin-bottom: 70px;
+}
+
+.edit-form {
+  padding-left: 150px;
+  border: solid  #FF9900 8px;
+  border-radius: 8px;
+  margin-right: 30px;
+  margin-left: 30px;
+  padding-right: 50px;
+  padding-bottom: 20px;
+}
+
+img {
+  margin-top: 100px;
 }
